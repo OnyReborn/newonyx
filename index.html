@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONY-X | Reborn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="home">
+        <h1 class="glitch">ONY-X</h1>
+        <p class="tagline">Expect Us</p>
+        <a href="#" class="button" id="enterVoid">Enter the void</a>
+    </div>
+    
+    <div id="content" class="hidden">
+        <nav>
+            <ul>
+                <li><a href="#info" class="tab">Information</a></li>
+                <li><a href="#social" class="tab">Social Links</a></li>
+                <li><a href="#updates" class="tab">Updates</a></li>
+            </ul>
+        </nav>
+        
+        <div id="info" class="tab-content"> <h2>Information</h2><p>Ony-x is a group filled with experienced raiders and experts.</p> Our only mission is to cause as much chaos as possible until we can't anymore.</div>
+        <div id="social" class="tab-content hidden"> <h2>Social Links</h2><p>https://discord.gg/raid</p>https://www.youtube.com/@OnyX_Reborn</div>
+        <div id="updates" class="tab-content hidden"> <h2>Updates</h2><p>[ + ] Added UNITS</p> [ + ] Started building the Ony-X Academy</div>
+    </div>
+
+    <script>
+        document.getElementById('enterVoid').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('content').style.display = 'flex';
+        });
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+                document.querySelector(this.getAttribute('href')).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: black;
+        color: #0f0;
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 4rem;
+        text-transform: uppercase;
+    }
+
+    .glitch {
+        position: relative;
+        animation: glitch 1s infinite alternate;
+    }
+
+    @keyframes glitch {
+        0% { text-shadow: 4px 0px #f00, -4px 0px #00f; }
+        100% { text-shadow: -4px 0px #f00, 4px 0px #00f; }
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 2px solid #0f0;
+        color: #0f0;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        background: #0f0;
+        color: black;
+    }
+
+    #content {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        color: #0f0;
+        text-decoration: none;
+        font-size: 1.2rem;
+        border-bottom: 2px solid transparent;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        border-bottom: 2px solid #0f0;
+    }
+
+    .tab-content {
+        margin-top: 20px;
+        padding: 10px;
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
